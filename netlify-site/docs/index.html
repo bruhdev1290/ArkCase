@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ArkCase Documentation - Getting Started Guide">
+    <title>ArkCase Documentation</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/docs.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="../"><h1>ArkCase</h1></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../#features">Features</a></li>
+                <li><a href="../demo/">Demo</a></li>
+                <li><a href="./" class="active">Docs</a></li>
+                <li><a href="https://github.com/ArkCase/ArkCase" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="docs-layout">
+        <aside class="docs-sidebar">
+            <nav class="docs-nav">
+                <h3>Getting Started</h3>
+                <ul>
+                    <li><a href="#introduction" class="active">Introduction</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#configuration">Configuration</a></li>
+                    <li><a href="#first-steps">First Steps</a></li>
+                </ul>
+                <h3>Core Concepts</h3>
+                <ul>
+                    <li><a href="#cases">Cases</a></li>
+                    <li><a href="#tasks">Tasks</a></li>
+                    <li><a href="#documents">Documents</a></li>
+                    <li><a href="#workflows">Workflows</a></li>
+                </ul>
+                <h3>Architecture</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#backend">Backend Stack</a></li>
+                    <li><a href="#frontend">Frontend Stack</a></li>
+                    <li><a href="#integrations">Integrations</a></li>
+                </ul>
+                <h3>API Reference</h3>
+                <ul>
+                    <li><a href="#rest-api">REST API</a></li>
+                    <li><a href="#authentication">Authentication</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="docs-content">
+            <article>
+                <section id="introduction">
+                    <h1>Introduction to ArkCase</h1>
+                    <p class="lead">ArkCase is the leading open source case management and IT modernization platform, designed to accelerate your case management initiatives and reduce implementation costs.</p>
+                    
+                    <div class="info-callout">
+                        <h4>📘 About This Documentation</h4>
+                        <p>This documentation provides an overview of ArkCase features and architecture. For complete documentation, visit the <a href="https://www.arkcase.com/developer-support/" target="_blank" rel="noopener noreferrer">official ArkCase developer portal</a>.</p>
+                    </div>
+
+                    <h2>What is ArkCase?</h2>
+                    <p>ArkCase is an enterprise-grade case management system that provides:</p>
+                    <ul>
+                        <li><strong>Case Management</strong> - Track and manage cases through their complete lifecycle</li>
+                        <li><strong>Document Management</strong> - Integrated with Alfresco for robust ECM capabilities</li>
+                        <li><strong>Workflow Automation</strong> - Activiti-powered business process management</li>
+                        <li><strong>Search</strong> - Apache Solr integration for powerful search capabilities</li>
+                        <li><strong>Reporting</strong> - Pentaho integration for analytics and reporting</li>
+                        <li><strong>Security</strong> - Enterprise authentication (LDAP, SAML, OAuth2, Kerberos)</li>
+                    </ul>
+
+                    <h2>Use Cases</h2>
+                    <p>ArkCase is suitable for various case management scenarios:</p>
+                    <div class="card-grid">
+                        <div class="doc-card">
+                            <h4>📋 FOIA Processing</h4>
+                            <p>Freedom of Information Act request management and processing</p>
+                        </div>
+                        <div class="doc-card">
+                            <h4>🔍 Investigations</h4>
+                            <p>Case-based investigation management and tracking</p>
+                        </div>
+                        <div class="doc-card">
+                            <h4>📝 Complaints</h4>
+                            <p>Complaint intake, tracking, and resolution</p>
+                        </div>
+                        <div class="doc-card">
+                            <h4>⚖️ Legal</h4>
+                            <p>Legal case management and document tracking</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="installation">
+                    <h1>Installation</h1>
+                    <p>ArkCase can be installed in several ways depending on your needs.</p>
+
+                    <h2>Prerequisites</h2>
+                    <ul>
+                        <li>At least 16 GB RAM</li>
+                        <li>At least 50 GB disk space</li>
+                        <li>Java 8 (AdoptOpenJDK recommended)</li>
+                        <li>Maven 3.5+</li>
+                        <li>Node.js and Yarn</li>
+                        <li>VirtualBox and Vagrant (for VM setup)</li>
+                    </ul>
+
+                    <h2>Option 1: Pre-built Virtual Machine</h2>
+                    <p>The easiest way to get started is with the pre-built VM:</p>
+                    <div class="code-block">
+                        <pre><code># Clone the arkcase-ce repository
+git clone https://github.com/ArkCase/arkcase-ce.git
+cd arkcase-ce
+
+# Follow the instructions in the README
+# to download and run the pre-built VM</code></pre>
+                    </div>
+
+                    <h2>Option 2: Build from Source</h2>
+                    <p>For development or customization:</p>
+                    <div class="code-block">
+                        <pre><code># Clone the repository
+git clone https://github.com/ArkCase/ArkCase.git
+cd ArkCase
+
+# Build with Maven (skip integration tests)
+mvn -DskipITs clean install
+
+# The WAR file will be at:
+# acm-standard-applications/arkcase/target/arkcase-{version}.war</code></pre>
+                    </div>
+
+                    <div class="warning-callout">
+                        <h4>⚠️ Backend Services Required</h4>
+                        <p>ArkCase requires several backend services: MySQL, Solr, ActiveMQ, Alfresco, and Pentaho. These are included in the pre-built VM or must be configured separately.</p>
+                    </div>
+                </section>
+
+                <section id="configuration">
+                    <h1>Configuration</h1>
+                    <p>ArkCase uses a configuration folder that must be set up before running.</p>
+
+                    <h2>Configuration Folder</h2>
+                    <p>Clone the configuration repository:</p>
+                    <div class="code-block">
+                        <pre><code>git clone https://github.com/ArkCase/.arkcase.git ~/.arkcase</code></pre>
+                    </div>
+
+                    <h2>Config Server</h2>
+                    <p>Starting with version 3.3.1, ArkCase requires a Spring Cloud Config Server:</p>
+                    <div class="code-block">
+                        <pre><code># Download config server from:
+# https://github.com/ArkCase/acm-config-server/releases
+
+# Start the config server
+java -jar config-server-{version}.jar
+
+# Default port is 9999</code></pre>
+                    </div>
+
+                    <h2>Tomcat Configuration</h2>
+                    <p>Configure Tomcat 9 with the TLS connector and native libraries as described in the main README.</p>
+                </section>
+
+                <section id="first-steps">
+                    <h1>First Steps</h1>
+                    <p>After installation, here's how to get started with ArkCase.</p>
+
+                    <h2>Logging In</h2>
+                    <p>Access ArkCase at <code>https://arkcase-ce.local/arkcase</code> (or your configured URL).</p>
+                    <p>Default admin credentials:</p>
+                    <ul>
+                        <li><strong>Username:</strong> arkcase-admin@arkcase.org</li>
+                        <li><strong>Password:</strong> @rKc@3e</li>
+                    </ul>
+
+                    <h2>Creating Your First Case</h2>
+                    <ol>
+                        <li>Navigate to Cases in the sidebar</li>
+                        <li>Click "New Case"</li>
+                        <li>Fill in the required fields</li>
+                        <li>Assign to a user or group</li>
+                        <li>Submit the case</li>
+                    </ol>
+
+                    <div class="tip-callout">
+                        <h4>💡 Try the Demo</h4>
+                        <p>Want to explore the interface before installing? <a href="../demo/">Try our interactive demo</a> to see how ArkCase works.</p>
+                    </div>
+                </section>
+
+                <section id="cases">
+                    <h1>Cases</h1>
+                    <p>Cases are the core entity in ArkCase, representing a matter that needs to be tracked and managed.</p>
+
+                    <h2>Case Lifecycle</h2>
+                    <p>Cases in ArkCase follow a configurable lifecycle:</p>
+                    <ol>
+                        <li><strong>Draft</strong> - Initial creation, not yet submitted</li>
+                        <li><strong>Active</strong> - Case is being worked on</li>
+                        <li><strong>In Review</strong> - Under review by supervisor</li>
+                        <li><strong>Approved</strong> - Case work approved</li>
+                        <li><strong>Closed</strong> - Case completed</li>
+                    </ol>
+
+                    <h2>Case Components</h2>
+                    <p>Each case can contain:</p>
+                    <ul>
+                        <li>Documents and attachments</li>
+                        <li>Tasks and assignments</li>
+                        <li>Notes and comments</li>
+                        <li>People and organizations</li>
+                        <li>Timeline and history</li>
+                    </ul>
+                </section>
+
+                <section id="tasks">
+                    <h1>Tasks</h1>
+                    <p>Tasks are work items that need to be completed, often associated with cases.</p>
+
+                    <h2>Task Types</h2>
+                    <ul>
+                        <li><strong>Manual Tasks</strong> - Created by users</li>
+                        <li><strong>Workflow Tasks</strong> - Generated by business processes</li>
+                        <li><strong>Approval Tasks</strong> - Require approval decisions</li>
+                    </ul>
+                </section>
+
+                <section id="documents">
+                    <h1>Documents</h1>
+                    <p>ArkCase provides robust document management through Alfresco integration.</p>
+
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Upload and organize documents</li>
+                        <li>Version control</li>
+                        <li>Document preview</li>
+                        <li>Full-text search</li>
+                        <li>Access control</li>
+                    </ul>
+                </section>
+
+                <section id="workflows">
+                    <h1>Workflows</h1>
+                    <p>ArkCase uses Activiti BPM for workflow automation.</p>
+
+                    <h2>Capabilities</h2>
+                    <ul>
+                        <li>Visual process modeling</li>
+                        <li>Automatic task assignment</li>
+                        <li>Parallel and sequential workflows</li>
+                        <li>Timer events</li>
+                        <li>Business rules integration</li>
+                    </ul>
+                </section>
+
+                <section id="overview">
+                    <h1>Architecture Overview</h1>
+                    <p>ArkCase is built on modern, enterprise-grade technologies.</p>
+
+                    <div class="architecture-diagram">
+                        <div class="arch-layer">
+                            <h3>Presentation Layer</h3>
+                            <div class="arch-items">
+                                <span>AngularJS</span>
+                                <span>Bootstrap</span>
+                                <span>REST APIs</span>
+                            </div>
+                        </div>
+                        <div class="arch-layer">
+                            <h3>Application Layer</h3>
+                            <div class="arch-items">
+                                <span>Spring MVC</span>
+                                <span>Spring Security</span>
+                                <span>Activiti BPM</span>
+                            </div>
+                        </div>
+                        <div class="arch-layer">
+                            <h3>Integration Layer</h3>
+                            <div class="arch-items">
+                                <span>Solr</span>
+                                <span>ActiveMQ</span>
+                                <span>Alfresco</span>
+                            </div>
+                        </div>
+                        <div class="arch-layer">
+                            <h3>Data Layer</h3>
+                            <div class="arch-items">
+                                <span>MySQL/PostgreSQL</span>
+                                <span>EclipseLink JPA</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="backend">
+                    <h1>Backend Stack</h1>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Technology</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Framework</td>
+                                <td>Spring 5.x</td>
+                                <td>Application framework</td>
+                            </tr>
+                            <tr>
+                                <td>Security</td>
+                                <td>Spring Security</td>
+                                <td>Authentication & authorization</td>
+                            </tr>
+                            <tr>
+                                <td>ORM</td>
+                                <td>EclipseLink JPA</td>
+                                <td>Database persistence</td>
+                            </tr>
+                            <tr>
+                                <td>Workflow</td>
+                                <td>Activiti</td>
+                                <td>Business process management</td>
+                            </tr>
+                            <tr>
+                                <td>Search</td>
+                                <td>Apache Solr</td>
+                                <td>Full-text search</td>
+                            </tr>
+                            <tr>
+                                <td>Messaging</td>
+                                <td>Apache ActiveMQ</td>
+                                <td>Async messaging</td>
+                            </tr>
+                            <tr>
+                                <td>ECM</td>
+                                <td>Alfresco</td>
+                                <td>Document management</td>
+                            </tr>
+                            <tr>
+                                <td>Reporting</td>
+                                <td>Pentaho</td>
+                                <td>Analytics & reports</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="frontend">
+                    <h1>Frontend Stack</h1>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Technology</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Framework</td>
+                                <td>AngularJS 1.x</td>
+                            </tr>
+                            <tr>
+                                <td>UI Components</td>
+                                <td>Angular Bootstrap</td>
+                            </tr>
+                            <tr>
+                                <td>Build Tool</td>
+                                <td>Grunt</td>
+                            </tr>
+                            <tr>
+                                <td>Package Manager</td>
+                                <td>Yarn / npm</td>
+                            </tr>
+                            <tr>
+                                <td>Styling</td>
+                                <td>SCSS / CSS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="integrations">
+                    <h1>Integrations</h1>
+                    <p>ArkCase supports various integrations:</p>
+                    <ul>
+                        <li><strong>LDAP</strong> - Directory services integration</li>
+                        <li><strong>SAML</strong> - Single sign-on</li>
+                        <li><strong>OAuth2</strong> - Modern authentication</li>
+                        <li><strong>Kerberos</strong> - Windows authentication</li>
+                        <li><strong>Microsoft Exchange</strong> - Email integration</li>
+                        <li><strong>CMIS</strong> - Content management interoperability</li>
+                    </ul>
+                </section>
+
+                <section id="rest-api">
+                    <h1>REST API</h1>
+                    <p>ArkCase provides a comprehensive REST API for integration and automation.</p>
+
+                    <h2>API Endpoint Examples</h2>
+                    <div class="code-block">
+                        <pre><code># Get all cases
+GET /api/v1/plugin/casefile
+
+# Create a new case
+POST /api/v1/plugin/casefile
+
+# Get case by ID
+GET /api/v1/plugin/casefile/{id}
+
+# Update case
+PUT /api/v1/plugin/casefile/{id}
+
+# Search
+GET /api/v1/plugin/search?q={query}</code></pre>
+                    </div>
+
+                    <div class="info-callout">
+                        <h4>📚 API Documentation</h4>
+                        <p>ArkCase includes Swagger UI for API exploration. Access it at <code>/swagger-ui.html</code> when running the application.</p>
+                    </div>
+                </section>
+
+                <section id="authentication">
+                    <h1>Authentication</h1>
+                    <p>ArkCase supports multiple authentication methods.</p>
+
+                    <h2>Supported Methods</h2>
+                    <ul>
+                        <li><strong>LDAP</strong> - Standard LDAP/AD authentication</li>
+                        <li><strong>SAML 2.0</strong> - SSO with identity providers</li>
+                        <li><strong>OAuth2/OIDC</strong> - Modern token-based auth</li>
+                        <li><strong>Kerberos</strong> - Windows integrated auth</li>
+                    </ul>
+
+                    <h2>API Authentication</h2>
+                    <p>API requests can be authenticated using:</p>
+                    <ul>
+                        <li>Session cookies (for browser-based access)</li>
+                        <li>Bearer tokens (for API access)</li>
+                        <li>Basic authentication (for simple integrations)</li>
+                    </ul>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2024 ArkCase LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('.docs-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Update active state
+                    document.querySelectorAll('.docs-nav a').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Highlight current section on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.docs-nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ArkCase Demo - Interactive Case Management Dashboard">
+    <title>ArkCase Demo - Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/demo.css">
+</head>
+<body class="demo-body">
+    <div class="demo-layout">
+        <!-- Sidebar -->
+        <aside class="demo-sidebar">
+            <div class="sidebar-header">
+                <h1>ArkCase</h1>
+                <span class="demo-badge">Demo</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-section="cases">
+                    <span class="nav-icon">📋</span>
+                    <span>Cases</span>
+                </a>
+                <a href="#" class="nav-item" data-section="tasks">
+                    <span class="nav-icon">✅</span>
+                    <span>Tasks</span>
+                </a>
+                <a href="#" class="nav-item" data-section="documents">
+                    <span class="nav-icon">📁</span>
+                    <span>Documents</span>
+                </a>
+                <a href="#" class="nav-item" data-section="reports">
+                    <span class="nav-icon">📈</span>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item" data-section="search">
+                    <span class="nav-icon">🔍</span>
+                    <span>Search</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../" class="back-link">← Back to Home</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="demo-main">
+            <header class="demo-header">
+                <div class="header-search">
+                    <input type="text" placeholder="Search cases, documents, tasks..." id="globalSearch">
+                </div>
+                <div class="header-user">
+                    <span class="notification-icon">🔔</span>
+                    <div class="user-menu">
+                        <span class="user-avatar">👤</span>
+                        <span class="user-name">Demo User</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="demo-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <h2>Dashboard</h2>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">📋</div>
+                            <div class="stat-info">
+                                <span class="stat-value">24</span>
+                                <span class="stat-label">Active Cases</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-info">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Pending Tasks</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📁</div>
+                            <div class="stat-info">
+                                <span class="stat-value">156</span>
+                                <span class="stat-label">Documents</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-info">
+                                <span class="stat-value">8</span>
+                                <span class="stat-label">Team Members</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-widgets">
+                        <div class="widget">
+                            <h3>Recent Cases</h3>
+                            <div class="widget-content">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Case #</th>
+                                            <th>Title</th>
+                                            <th>Status</th>
+                                            <th>Assigned</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CASE-2024-001</td>
+                                            <td>Infrastructure Review Request</td>
+                                            <td><span class="status status-active">Active</span></td>
+                                            <td>John Smith</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CASE-2024-002</td>
+                                            <td>Compliance Audit 2024</td>
+                                            <td><span class="status status-pending">Pending</span></td>
+                                            <td>Jane Doe</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CASE-2024-003</td>
+                                            <td>Security Incident Report</td>
+                                            <td><span class="status status-active">Active</span></td>
+                                            <td>Mike Johnson</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CASE-2024-004</td>
+                                            <td>FOIA Request - Q1 Reports</td>
+                                            <td><span class="status status-complete">Complete</span></td>
+                                            <td>Sarah Wilson</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="widget">
+                            <h3>My Tasks</h3>
+                            <div class="widget-content">
+                                <ul class="task-list">
+                                    <li class="task-item">
+                                        <input type="checkbox" id="task1">
+                                        <label for="task1">Review document submission for CASE-2024-001</label>
+                                        <span class="task-due">Due: Today</span>
+                                    </li>
+                                    <li class="task-item">
+                                        <input type="checkbox" id="task2">
+                                        <label for="task2">Approve workflow for compliance audit</label>
+                                        <span class="task-due">Due: Tomorrow</span>
+                                    </li>
+                                    <li class="task-item">
+                                        <input type="checkbox" id="task3" checked>
+                                        <label for="task3">Update case notes for security incident</label>
+                                        <span class="task-due">Completed</span>
+                                    </li>
+                                    <li class="task-item">
+                                        <input type="checkbox" id="task4">
+                                        <label for="task4">Schedule meeting with stakeholders</label>
+                                        <span class="task-due">Due: Dec 5</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-charts">
+                        <div class="chart-widget">
+                            <h3>Cases by Status</h3>
+                            <div class="chart-placeholder">
+                                <div class="bar-chart">
+                                    <div class="bar" style="height: 80%;" title="Active: 24">
+                                        <span class="bar-label">Active</span>
+                                    </div>
+                                    <div class="bar" style="height: 40%;" title="Pending: 12">
+                                        <span class="bar-label">Pending</span>
+                                    </div>
+                                    <div class="bar" style="height: 60%;" title="Review: 18">
+                                        <span class="bar-label">Review</span>
+                                    </div>
+                                    <div class="bar" style="height: 90%;" title="Complete: 45">
+                                        <span class="bar-label">Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-widget">
+                            <h3>Activity Timeline</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <span class="timeline-time">10:30 AM</span>
+                                    <span class="timeline-event">New document uploaded to CASE-2024-001</span>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-time">9:15 AM</span>
+                                    <span class="timeline-event">Task completed: Security review</span>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-time">8:45 AM</span>
+                                    <span class="timeline-event">New case created: CASE-2024-005</span>
+                                </div>
+                                <div class="timeline-item">
+                                    <span class="timeline-time">Yesterday</span>
+                                    <span class="timeline-event">Workflow approved for compliance audit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cases Section -->
+                <section id="cases" class="content-section">
+                    <div class="section-header">
+                        <h2>Cases</h2>
+                        <button class="btn btn-primary" onclick="showModal('newCase')">+ New Case</button>
+                    </div>
+                    <div class="filters">
+                        <select id="statusFilter">
+                            <option value="">All Statuses</option>
+                            <option value="active">Active</option>
+                            <option value="pending">Pending</option>
+                            <option value="complete">Complete</option>
+                        </select>
+                        <select id="assigneeFilter">
+                            <option value="">All Assignees</option>
+                            <option value="john">John Smith</option>
+                            <option value="jane">Jane Doe</option>
+                            <option value="mike">Mike Johnson</option>
+                        </select>
+                        <input type="date" id="dateFilter" placeholder="Filter by date">
+                    </div>
+                    <table class="data-table full-width">
+                        <thead>
+                            <tr>
+                                <th>Case #</th>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                                <th>Assigned To</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#" class="case-link">CASE-2024-001</a></td>
+                                <td>Infrastructure Review Request</td>
+                                <td>IT Request</td>
+                                <td><span class="status status-active">Active</span></td>
+                                <td><span class="priority priority-high">High</span></td>
+                                <td>John Smith</td>
+                                <td>Nov 15, 2024</td>
+                                <td>
+                                    <button class="btn-icon" title="View">👁️</button>
+                                    <button class="btn-icon" title="Edit">✏️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="case-link">CASE-2024-002</a></td>
+                                <td>Compliance Audit 2024</td>
+                                <td>Audit</td>
+                                <td><span class="status status-pending">Pending</span></td>
+                                <td><span class="priority priority-medium">Medium</span></td>
+                                <td>Jane Doe</td>
+                                <td>Nov 18, 2024</td>
+                                <td>
+                                    <button class="btn-icon" title="View">👁️</button>
+                                    <button class="btn-icon" title="Edit">✏️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="case-link">CASE-2024-003</a></td>
+                                <td>Security Incident Report</td>
+                                <td>Incident</td>
+                                <td><span class="status status-active">Active</span></td>
+                                <td><span class="priority priority-critical">Critical</span></td>
+                                <td>Mike Johnson</td>
+                                <td>Nov 20, 2024</td>
+                                <td>
+                                    <button class="btn-icon" title="View">👁️</button>
+                                    <button class="btn-icon" title="Edit">✏️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="case-link">CASE-2024-004</a></td>
+                                <td>FOIA Request - Q1 Reports</td>
+                                <td>FOIA</td>
+                                <td><span class="status status-complete">Complete</span></td>
+                                <td><span class="priority priority-low">Low</span></td>
+                                <td>Sarah Wilson</td>
+                                <td>Nov 10, 2024</td>
+                                <td>
+                                    <button class="btn-icon" title="View">👁️</button>
+                                    <button class="btn-icon" title="Edit">✏️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="case-link">CASE-2024-005</a></td>
+                                <td>Budget Review Process</td>
+                                <td>Finance</td>
+                                <td><span class="status status-active">Active</span></td>
+                                <td><span class="priority priority-medium">Medium</span></td>
+                                <td>John Smith</td>
+                                <td>Nov 25, 2024</td>
+                                <td>
+                                    <button class="btn-icon" title="View">👁️</button>
+                                    <button class="btn-icon" title="Edit">✏️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button class="btn-pagination" disabled>&lt; Previous</button>
+                        <span class="page-info">Page 1 of 3</span>
+                        <button class="btn-pagination">Next &gt;</button>
+                    </div>
+                </section>
+
+                <!-- Tasks Section -->
+                <section id="tasks" class="content-section">
+                    <div class="section-header">
+                        <h2>Tasks</h2>
+                        <button class="btn btn-primary" onclick="showModal('newTask')">+ New Task</button>
+                    </div>
+                    <div class="task-board">
+                        <div class="task-column">
+                            <h3>To Do</h3>
+                            <div class="task-cards">
+                                <div class="task-card" draggable="true">
+                                    <div class="task-card-header">
+                                        <span class="priority priority-high">High</span>
+                                    </div>
+                                    <h4>Review document submission</h4>
+                                    <p>CASE-2024-001</p>
+                                    <div class="task-card-footer">
+                                        <span>Due: Today</span>
+                                        <span class="assignee">👤 JS</span>
+                                    </div>
+                                </div>
+                                <div class="task-card" draggable="true">
+                                    <div class="task-card-header">
+                                        <span class="priority priority-medium">Medium</span>
+                                    </div>
+                                    <h4>Approve workflow</h4>
+                                    <p>CASE-2024-002</p>
+                                    <div class="task-card-footer">
+                                        <span>Due: Tomorrow</span>
+                                        <span class="assignee">👤 JD</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-column">
+                            <h3>In Progress</h3>
+                            <div class="task-cards">
+                                <div class="task-card" draggable="true">
+                                    <div class="task-card-header">
+                                        <span class="priority priority-critical">Critical</span>
+                                    </div>
+                                    <h4>Investigate security incident</h4>
+                                    <p>CASE-2024-003</p>
+                                    <div class="task-card-footer">
+                                        <span>Due: Nov 30</span>
+                                        <span class="assignee">👤 MJ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-column">
+                            <h3>Review</h3>
+                            <div class="task-cards">
+                                <div class="task-card" draggable="true">
+                                    <div class="task-card-header">
+                                        <span class="priority priority-low">Low</span>
+                                    </div>
+                                    <h4>Update documentation</h4>
+                                    <p>CASE-2024-004</p>
+                                    <div class="task-card-footer">
+                                        <span>Due: Dec 5</span>
+                                        <span class="assignee">👤 SW</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-column">
+                            <h3>Done</h3>
+                            <div class="task-cards">
+                                <div class="task-card completed" draggable="true">
+                                    <div class="task-card-header">
+                                        <span class="priority priority-medium">Medium</span>
+                                    </div>
+                                    <h4>Initial case assessment</h4>
+                                    <p>CASE-2024-001</p>
+                                    <div class="task-card-footer">
+                                        <span>Completed</span>
+                                        <span class="assignee">👤 JS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documents Section -->
+                <section id="documents" class="content-section">
+                    <div class="section-header">
+                        <h2>Documents</h2>
+                        <button class="btn btn-primary" onclick="showModal('uploadDoc')">📤 Upload</button>
+                    </div>
+                    <div class="document-browser">
+                        <div class="folder-tree">
+                            <h3>Folders</h3>
+                            <ul class="tree">
+                                <li class="folder open">
+                                    <span>📁 Cases</span>
+                                    <ul>
+                                        <li class="folder">
+                                            <span>📁 CASE-2024-001</span>
+                                        </li>
+                                        <li class="folder">
+                                            <span>📁 CASE-2024-002</span>
+                                        </li>
+                                        <li class="folder">
+                                            <span>📁 CASE-2024-003</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="folder">
+                                    <span>📁 Templates</span>
+                                </li>
+                                <li class="folder">
+                                    <span>📁 Reports</span>
+                                </li>
+                                <li class="folder">
+                                    <span>📁 Archives</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="document-list">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Size</th>
+                                        <th>Modified</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>📄 Infrastructure_Review_Report.pdf</td>
+                                        <td>PDF</td>
+                                        <td>2.4 MB</td>
+                                        <td>Nov 28, 2024</td>
+                                        <td>
+                                            <button class="btn-icon" title="Download">⬇️</button>
+                                            <button class="btn-icon" title="Preview">👁️</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>📄 Compliance_Checklist.xlsx</td>
+                                        <td>Excel</td>
+                                        <td>156 KB</td>
+                                        <td>Nov 25, 2024</td>
+                                        <td>
+                                            <button class="btn-icon" title="Download">⬇️</button>
+                                            <button class="btn-icon" title="Preview">👁️</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>📄 Security_Incident_Notes.docx</td>
+                                        <td>Word</td>
+                                        <td>89 KB</td>
+                                        <td>Nov 22, 2024</td>
+                                        <td>
+                                            <button class="btn-icon" title="Download">⬇️</button>
+                                            <button class="btn-icon" title="Preview">👁️</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>📄 Meeting_Minutes_20241120.pdf</td>
+                                        <td>PDF</td>
+                                        <td>445 KB</td>
+                                        <td>Nov 20, 2024</td>
+                                        <td>
+                                            <button class="btn-icon" title="Download">⬇️</button>
+                                            <button class="btn-icon" title="Preview">👁️</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reports Section -->
+                <section id="reports" class="content-section">
+                    <div class="section-header">
+                        <h2>Reports</h2>
+                        <button class="btn btn-primary">📊 Generate Report</button>
+                    </div>
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-icon">📊</div>
+                            <h3>Case Summary Report</h3>
+                            <p>Overview of all cases by status, type, and assignee</p>
+                            <button class="btn btn-secondary">View Report</button>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">📈</div>
+                            <h3>Performance Metrics</h3>
+                            <p>Team performance and case resolution statistics</p>
+                            <button class="btn btn-secondary">View Report</button>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">📉</div>
+                            <h3>Workflow Analytics</h3>
+                            <p>Workflow completion times and bottleneck analysis</p>
+                            <button class="btn btn-secondary">View Report</button>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">📋</div>
+                            <h3>Compliance Report</h3>
+                            <p>Audit trails and compliance status overview</p>
+                            <button class="btn btn-secondary">View Report</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Search Section -->
+                <section id="search" class="content-section">
+                    <div class="section-header">
+                        <h2>Advanced Search</h2>
+                    </div>
+                    <div class="search-form">
+                        <div class="search-row">
+                            <input type="text" placeholder="Enter search terms..." class="search-input-large" id="searchTerms">
+                            <button class="btn btn-primary">🔍 Search</button>
+                        </div>
+                        <div class="search-filters">
+                            <div class="filter-group">
+                                <label>Search In:</label>
+                                <label><input type="checkbox" checked> Cases</label>
+                                <label><input type="checkbox" checked> Documents</label>
+                                <label><input type="checkbox" checked> Tasks</label>
+                                <label><input type="checkbox"> People</label>
+                            </div>
+                            <div class="filter-group">
+                                <label>Date Range:</label>
+                                <input type="date" id="searchDateFrom">
+                                <span>to</span>
+                                <input type="date" id="searchDateTo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-results">
+                        <p class="search-hint">Enter search terms to find cases, documents, tasks, and more.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">New Case</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/demo.js"></script>
+</body>
+</html>

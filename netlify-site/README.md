@@ -1,10 +1,36 @@
 # ArkCase Netlify Deployment
 
-This directory contains a static demo/landing page for ArkCase that can be deployed to Netlify.
+This directory contains a feature-rich static web application for ArkCase that can be deployed to Netlify. It includes an interactive demo dashboard, documentation, and landing page.
+
+## 🌟 Features
+
+This Netlify deployment includes:
+
+### Landing Page (`index.html`)
+- Overview of ArkCase features and capabilities
+- Architecture information
+- Getting started guide
+- Links to resources
+
+### Interactive Demo (`demo/`)
+- **Dashboard** - Statistics, recent cases, tasks, activity timeline
+- **Cases** - Case listing with filters, create new case modal
+- **Tasks** - Kanban-style task board with drag-and-drop UI
+- **Documents** - File browser with folder tree
+- **Reports** - Report generation options
+- **Search** - Advanced search with filters
+
+### Documentation (`docs/`)
+- Getting started guide
+- Installation instructions
+- Core concepts (Cases, Tasks, Documents, Workflows)
+- Architecture overview
+- API reference
+- Authentication methods
 
 ## ⚠️ Important Limitations
 
-**ArkCase is a full Java enterprise application** that cannot run entirely on Netlify. Netlify is designed for static websites and JAMstack applications, while ArkCase requires:
+**ArkCase is a full Java enterprise application** that cannot run entirely on Netlify. The full application requires:
 
 - **Java Application Server**: Apache Tomcat 9
 - **Database**: MySQL, PostgreSQL, MariaDB, or SQL Server
@@ -14,13 +40,25 @@ This directory contains a static demo/landing page for ArkCase that can be deplo
 - **Reporting**: Pentaho
 - **Workflow Engine**: Activiti BPM
 
-This Netlify deployment provides only a **static demo/landing page** to showcase ArkCase features and direct users to the proper deployment methods.
+This Netlify deployment provides a **static demonstration** of the ArkCase UI and features. Data is not persisted and backend integrations are simulated.
 
-## What This Deployment Includes
+## Directory Structure
 
-- `index.html` - Static landing page with ArkCase information
-- `css/style.css` - Styling for the landing page
-- `netlify.toml` - Netlify configuration file
+```
+netlify-site/
+├── index.html          # Landing page
+├── css/
+│   ├── style.css       # Main styles
+│   ├── demo.css        # Demo dashboard styles
+│   └── docs.css        # Documentation styles
+├── js/
+│   └── demo.js         # Demo interactivity
+├── demo/
+│   └── index.html      # Interactive demo dashboard
+├── docs/
+│   └── index.html      # Documentation
+└── README.md           # This file
+```
 
 ## Deploying to Netlify
 
