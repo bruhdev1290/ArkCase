@@ -160,7 +160,7 @@ function renderTasksBoard() {
         }
     } else {
         currentTasks.forEach(task => {
-            const col = columns[task.status.toLowerCase().replace(' ', '')];
+            const col = columns[task.status.toLowerCase().replace(/\s+/g, '')];
             if (col) {
                 col.innerHTML += `
                     <div class="task-card ${task.status === 'done' ? 'completed' : ''}" draggable="true" data-task-id="${task.id}">
@@ -353,7 +353,7 @@ function toggleTask(id, completed) {
 
 function addDocument(docData) {
     const newDoc = {
-        id: Date.now(),
+        id: Date.now().toString(),
         name: docData.name,
         type: docData.type || 'File',
         size: docData.size || 'N/A',
