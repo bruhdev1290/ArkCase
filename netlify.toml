@@ -17,11 +17,11 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirects for SPA routing (if using client-side routing)
+# Custom 404 page redirect
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 404
 
 # Headers for security and performance
 [[headers]]

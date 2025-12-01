@@ -283,7 +283,7 @@ pre {
 }
 
 code {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', Courier, monospace;
     font-size: 0.9rem;
 }
 
