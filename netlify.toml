@@ -1,0 +1,48 @@
+# Netlify configuration for ArkCase Demo Site
+# 
+# NOTE: ArkCase is a full Java enterprise application that requires a Java application 
+# server (Tomcat) and backend services (MySQL, Solr, ActiveMQ, Alfresco, Pentaho).
+# This Netlify deployment provides a static demo/landing page only.
+# For full functionality, please deploy ArkCase on a Java application server.
+# See README.md for full deployment instructions.
+
+[build]
+  # Directory containing the static site
+  publish = "netlify-site"
+  
+  # No build command needed for static site
+  # If you want to build the AngularJS frontend, uncomment below:
+  # command = "cd acm-standard-applications/arkcase/src/main/webapp/resources && npm install && npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Custom 404 page redirect
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ArkCase - Open Source Case Management and IT Modernization Platform">
+    <title>ArkCase - Case Management Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>ArkCase</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="demo/">Demo</a></li>
+                <li><a href="docs/">Docs</a></li>
+                <li><a href="#get-started">Get Started</a></li>
+                <li><a href="https://github.com/ArkCase/ArkCase" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Open Source Case Management Platform</h2>
+                <p>ArkCase is the leading open source case management and IT modernization platform, designed to accelerate your case management initiatives and reduce implementation costs.</p>
+                <div class="hero-buttons">
+                    <a href="demo/" class="btn btn-primary">Try Demo</a>
+                    <a href="#get-started" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Case Management</h3>
+                    <p>Comprehensive case tracking, workflow management, and document handling capabilities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security</h3>
+                    <p>Enterprise-grade security with LDAP, SAML, Kerberos, and OAuth2 authentication support.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics</h3>
+                    <p>Built-in reporting and analytics with Pentaho integration for data-driven insights.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Search</h3>
+                    <p>Powerful search capabilities powered by Apache Solr for quick information retrieval.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📁</div>
+                    <h3>Document Management</h3>
+                    <p>Integrated with Alfresco for robust enterprise content management.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Workflow Engine</h3>
+                    <p>Activiti-powered workflow engine for business process automation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture" class="architecture">
+            <h2>Architecture</h2>
+            <div class="architecture-content">
+                <p>ArkCase is built on modern, enterprise-grade technologies:</p>
+                <ul class="tech-list">
+                    <li><strong>Backend:</strong> Spring Framework 5.x, Spring Security, Spring MVC</li>
+                    <li><strong>Frontend:</strong> AngularJS with modular architecture</li>
+                    <li><strong>Database:</strong> MySQL, PostgreSQL, MariaDB, SQL Server support</li>
+                    <li><strong>Search:</strong> Apache Solr</li>
+                    <li><strong>Content Management:</strong> Alfresco</li>
+                    <li><strong>Messaging:</strong> Apache ActiveMQ</li>
+                    <li><strong>Workflow:</strong> Activiti BPM</li>
+                    <li><strong>Reporting:</strong> Pentaho</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="get-started" class="get-started">
+            <h2>Get Started</h2>
+            <div class="get-started-content">
+                <div class="info-box">
+                    <h3>⚠️ Important Note</h3>
+                    <p>This is a static demo page. ArkCase is a full Java enterprise application that requires:</p>
+                    <ul>
+                        <li>Java 8+ with Tomcat 9 application server</li>
+                        <li>Backend services: MySQL, Solr, ActiveMQ, Alfresco, Pentaho</li>
+                        <li>At least 16 GB RAM and 50 GB disk space</li>
+                    </ul>
+                </div>
+                
+                <div class="setup-steps">
+                    <h3>Quick Start Options</h3>
+                    
+                    <div class="step">
+                        <h4>Option 1: Pre-built Virtual Machine</h4>
+                        <p>Download and run a pre-built ArkCase VM:</p>
+                        <a href="https://github.com/ArkCase/arkcase-ce" 
+                           target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            Download VM
+                        </a>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Option 2: Developer Setup</h4>
+                        <p>Build and run ArkCase from source:</p>
+                        <pre><code># Clone the repository
+git clone https://github.com/ArkCase/ArkCase.git
+cd ArkCase
+
+# Build with Maven
+mvn -DskipITs clean install
+
+# Follow the full setup guide in README.md</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ArkCase</h4>
+                <p>Open Source Case Management Platform</p>
+                <p>Licensed under GNU Lesser General Public License</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://www.arkcase.com" target="_blank" rel="noopener noreferrer">Official Website</a></li>
+                    <li><a href="https://www.arkcase.com/developer-support/architecture/" target="_blank" rel="noopener noreferrer">Architecture Docs</a></li>
+                    <li><a href="https://github.com/ArkCase/ArkCase" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://github.com/ArkCase/ArkCase/issues" target="_blank" rel="noopener noreferrer">Report Issues</a></li>
+                    <li><a href="https://github.com/ArkCase/ArkCase/pulls" target="_blank" rel="noopener noreferrer">Contribute</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ArkCase LLC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
